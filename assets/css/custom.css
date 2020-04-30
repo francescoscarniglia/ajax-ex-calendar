@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: lightblue;
+}
+
+#calendar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 50px auto;
+  width: 1080px;
+  padding: 20px 10px;
+}
+
+.calendar-header {
+  display: flex;
+  height:  100px;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.calendar-body {
+  flex-grow: 1;
+  text-align:center;
+}
+
+.right,
+.left {
+  font-size: 24px;
+  color: gray;
+  cursor: pointer;
+}
+
+.left {
+  margin-left: 15px;
+}
+
+.left:hover,
+.right:hover {
+  color:lightblue;
+}
+
+
+li.holyday {
+  color: lightblue;
+}
