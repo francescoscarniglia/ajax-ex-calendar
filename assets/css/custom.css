@@ -34,7 +34,7 @@ h1 {
 
 .calendar-body {
   flex-grow: 1;
-  text-align:center;
+  text-align: center;
 }
 
 .right,
@@ -53,6 +53,9 @@ h1 {
   color:lightblue;
 }
 
+.month-list {
+  list-style: none;
+}
 
 li.holyday {
   color: lightblue;

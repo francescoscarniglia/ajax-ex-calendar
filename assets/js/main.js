@@ -34,4 +34,29 @@ function printMonth(template, date) {
   //setta header
   $('h1').html(date.format('MMMM YYYY'));
 
+  // imposta data atttribute (visualizzarela data)
+  $('.month').attr('data-this-date', date.format('YYYY-MM-DD'));
+
+  // genera giorni mese
+  for ( var i= 0; i < daysInMonth; i++){
+    // genera data con moment js
+    var thisDate = moment({
+      year : date.year(),
+      month : date.month(),
+      day : i +1
+    });
+
+    // imposta dati template
+    var context = {
+      class : 'day',
+      day : thisDate.format('DD dddd'),
+      completeDate : thisDate.format('YYYY-MM-DD')
+    };
+
+    // compilare e aggiungere i template
+    var html = template(context);
+    $('.month-list').append(html);
+    console.log(html);
+  }
+
 }
