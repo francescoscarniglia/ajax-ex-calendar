@@ -45,6 +45,7 @@ $(document).ready(function(){
       //   //ottengo festività
       //   printHoliday(thisDate)
       // }
+      
       navigateMonth(template, 'next');
 
     });
