@@ -12,6 +12,9 @@ $(document).ready(function(){
     //punto di partenza
     var baseMonth = moment('2018-01-01');
 
+    // converto in locale
+    moment.locale('it')
+
     //init Handlebars
     var source = $('#day-template').html();
     var template = Handlebars.compile(source);
@@ -22,15 +25,93 @@ $(document).ready(function(){
     //ottieni festività mese corrente
     printHoliday(baseMonth);
 
+    // nav in mounths
+    $('#next').click(function(){
+
+      // var thisDate = moment($('.month').attr('data-this-date'));
+      // // numero attuale del mese
+      // console.log(thisDate.month());
+      //
+      // // 0-11
+      // if(thisDate.month() === 11){
+      //   alert('Mese non disponibile');
+      // } else {
+      //   //manipolazione oggetto data
+      //   thisDate.add(1, 'months');
+      //
+      //   // print day
+      //   printMonth(template, thisDate);
+      //
+      //   //ottengo festività
+      //   printHoliday(thisDate)
+      // }
+      navigateMonth(template, 'next');
+
+    });
+
+    // prev
+    $('#prev').click(function (){
+      navigateMonth(template, 'prev');
+    //     var thisDate = moment($('.month').attr('data-this-date'));
+    //
+    //     if(thisDate.month() === 0) {
+    //       altert('Mese non dispobilile');
+    //     } else {
+    //       thisDate.subtract(1, 'months');
+    //     }
+    //
+    //     // print day
+    //     printMonth(template, thisDate);
+    //
+    //     //ottengo festività
+    //     printHoliday(thisDate)
+    });
+
 });//ready
 
 // *******************************
 // Function
 // *******************************
 
+// nav mont
+function navigateMonth(template, direction) {
+  var thisDate = moment($('.month').attr('data-this-date'));
+
+  if((thisDate.month() === 0 && direction === 'prev') || (thisDate.month() === 11 && direction === 'next')) {
+    altert('mese non disponibile');
+  }else {
+    if(direction === 'next') {
+      thisDate.add(1,'months')
+    }else(
+      thisDate.subtract(1,'months')
+    )
+
+    // print day
+    printMonth(template, thisDate);
+
+    //ottengo festività
+    printHoliday(thisDate)
+  }
+  // if(thisDate.month() === 0) {
+  //   altert('Mese non dispobilile');
+  // } else {
+  //   thisDate.subtract(1, 'months');
+  // }
+  //
+  // // print day
+  // printMonth(template, thisDate);
+  //
+  // //ottengo festività
+  // printHoliday(thisDate)
+}
+
 //stampa a schermo
 
 function printMonth(template, date) {
+
+  //clear dati recenti
+  $('.month-list').html();
+
   // numeri giorni in un mese
   var daysInMonth = date.daysInMonth();
 

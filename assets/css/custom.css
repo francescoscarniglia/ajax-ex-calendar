@@ -27,7 +27,7 @@ h1 {
 .calendar-header {
   display: flex;
   height:  100px;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -52,10 +52,16 @@ h1 {
   color:lightblue;
 }
 
+
 .month-list {
   list-style: none;
 }
 
 li.holyday {
   color: lightblue;
+}
+
+
+li {
+  text-transform: uppercase;
 }
